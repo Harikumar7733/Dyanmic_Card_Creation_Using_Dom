@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic_card_Creation</title>
+</head>
+<body>
+    <button onclick="boxes()">Click</button>
+    <div id="container">
+
+    </div>
+    <style>
+        #container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+       
+    </style>
+
+    <script>
+        function change(info){
+        var container = document.getElementsByClassName("container");
+        var div = document.createElement("div");
+        div.style.width = "280px";
+        div.style.height ="350px";
+        // div.style.border="1px solid black";
+        div.style.boxShadow="0 0 10px black";
+        div.style.margin = "20px";
+
+        var image = document.createElement("Img");
+        image.src = info.url;
+        div.appendChild(image);
+        image.style.width="200px";
+        image.style.height ="200px";
+        image.style.padding = "10px 40px";
+
+        var h3 = document.createElement("h3");
+        var Para = document.createElement("p");
+
+
+        h3.innerText = info.name;
+        Para.innerText =" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, excepturi!";
+        div.appendChild(h3);
+        div.appendChild(Para);
+        h3.style.textAlign = "center";
+        Para.style.textAlign ="center";
+      
+        
+        document.querySelector("#container").appendChild(div)
+        }
+
+        function boxes(){
+            var data =[
+                {url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9ivDOF4awvESFxnX0uWeMd10q33E7EdlvKHasNil7UaJ6B4ydujTMxOhZXZFC--t3jc&usqp=CAU",name:"Hari Kumar"},
+                {url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7qR__yrDfX7Zp-AeVfGhi2NiYolXWIxPgOA&s",name:"RamPrasad"},
+                {url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRBdfPo2_Dy6tRXRNiR6diRMh5thu6f8skFg&s",name:"Srinu"},
+                {url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsf3DEEtem869y7LMpHUjK9dtbgxZipSCKx5AADVBqW-FBiktNoG-6FsGW5xT-0cEKe_U&usqp=CAU",name:"DurgaPrasad"}
+            ];
+            var x = 0;
+           for(x in data){
+            change(data[x]);
+           }
+        }
+    </script>
+    
+    
+</body>
+</html>
